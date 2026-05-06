@@ -1,37 +1,54 @@
-# -----------------------------------------------
-# Personal wiki content — never commit these
-# -----------------------------------------------
-wiki/books/
-wiki/movies/
-wiki/shows/
-wiki/music/
-wiki/people/
-wiki/themes/
-wiki/moods/
-wiki/quotes/
-wiki/questions/
+# personal wiki content — ignore files, keep folders
+wiki/books/*
+!wiki/books/.gitkeep
+wiki/movies/*
+!wiki/movies/.gitkeep
+wiki/shows/*
+!wiki/shows/.gitkeep
+wiki/music/*
+!wiki/music/.gitkeep
+wiki/people/*
+!wiki/people/.gitkeep
+wiki/themes/*
+!wiki/themes/.gitkeep
+wiki/moods/*
+!wiki/moods/.gitkeep
+wiki/quotes/*
+!wiki/quotes/.gitkeep
+wiki/questions/*
+!wiki/questions/.gitkeep
 
-# Raw source material is always personal
-raw/
+# raw source material — ignore files, keep folders
+raw/books/*
+!raw/books/.gitkeep
+raw/movies/*
+!raw/movies/.gitkeep
+raw/shows/*
+!raw/shows/.gitkeep
+raw/music/*
+!raw/music/.gitkeep
+raw/articles/*
+!raw/articles/.gitkeep
+raw/quotes/*
+!raw/quotes/.gitkeep
+raw/notes/*
+!raw/notes/.gitkeep
+raw/exports/*
+!raw/exports/.gitkeep
+raw/screenshots/*
+!raw/screenshots/.gitkeep
 
-# -----------------------------------------------
-# Obsidian
-# -----------------------------------------------
+# obsidian
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/plugins/
 .obsidian/themes/
 
-# macOS
+# system
 .DS_Store
 **/.DS_Store
-
-# Python
 __pycache__/
 *.py[cod]
-*.egg-info/
-
-# Editors
 *.swp
 *.swo
 *~

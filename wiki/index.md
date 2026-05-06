@@ -1,11 +1,5 @@
 # Index
 
-Master catalog of every page in the wiki. Organized by type, with links and one-line descriptions.
-
-_The LLM updates this file on every ingest. Read this first when answering queries._
-
----
-
 ## 📚 Books
 
 | Page | Author | Status |
@@ -51,16 +45,16 @@ _The LLM updates this file on every ingest. Read this first when answering queri
 ## 💬 Quotes
 
 | Page | Source |
-|------|-------|
+|------|--------|
 | _(none yet)_ | |
 
 ## 📋 Lists
 
 | Page | Description |
 |------|-------------|
-| [[watchlist]] | Movies and shows to watch, watched, dropped |
-| [[reading-list]] | Books to read, reading, finished, dropped |
-| [[listening-list]] | Music and podcasts to explore |
+| [[watchlist]] | movies and shows |
+| [[reading-list]] | books |
+| [[listening-list]] | music and podcasts |
 
 ## ❓ Questions
 
@@ -68,10 +62,8 @@ _The LLM updates this file on every ingest. Read this first when answering queri
 |------|------|
 | _(none yet)_ | |
 
----
+## Core
 
-## Core Pages
-
-- [[profile]] — evolving taste profile
-- [[recommendations]] — what to explore next
-- [[log]] — chronological activity log
+- [[profile]]
+- [[recommendations]]
+- [[log]]

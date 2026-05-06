@@ -4,7 +4,6 @@ You maintain a personal taste wiki for books, movies, shows, music, articles, vi
 
 The goal is not just to summarize things. The goal is to build a living map of the user's taste over time.
 
----
 
 ## Architecture
 
@@ -14,7 +13,6 @@ Three layers:
 2. **`wiki/`** — LLM-maintained markdown wiki. Summaries, entity pages, theme pages, lists, an index, a taste profile, recommendations. The LLM owns this layer entirely. It creates pages, updates them, maintains cross-references, and keeps everything consistent. The user browses it (ideally in Obsidian).
 3. **`AGENTS.md`** — This file. The schema that tells the LLM how the wiki is structured, what the conventions are, and what workflows to follow. The user and LLM co-evolve this over time.
 
----
 
 ## Core structure
 
@@ -50,7 +48,6 @@ tools/                       # Helper scripts
 └── search_wiki.py           # Full-text search across wiki pages
 ```
 
----
 
 ## Main files
 
@@ -61,7 +58,6 @@ Always keep these updated:
 - `wiki/profile.md` — evolving taste profile
 - `wiki/recommendations.md` — what to explore next, and why
 
----
 
 ## Page types and templates
 
@@ -70,7 +66,6 @@ Always keep these updated:
 File: `wiki/books/{title-slug}.md`
 
 ```markdown
----
 type: book
 title: "The Secret History"
 author: "Donna Tartt"
@@ -79,7 +74,6 @@ status: finished  # reading | finished | paused | dropped | want-to-read | re-re
 rating: ★★★★☆
 date_started: 2026-03-15
 date_finished: 2026-04-02
----
 
 # The Secret History
 
@@ -120,7 +114,6 @@ Finished · ★★★★☆
 File: `wiki/movies/{title-slug}.md`
 
 ```markdown
----
 type: movie
 title: "Past Lives"
 director: "Celine Song"
@@ -128,7 +121,6 @@ year: 2023
 status: watched  # watched | want-to-watch | dropped | rewatch
 rating: ★★★★★
 date_watched: 2026-01-20
----
 
 # Past Lives
 
@@ -175,13 +167,11 @@ status: watching  # watching | watched | paused | dropped | want-to-watch
 File: `wiki/music/{title-slug}.md`
 
 ```markdown
----
 type: album  # or song
 title: "For Emma, Forever Ago"
 artist: "Bon Iver"
 year: 2007
 status: loved  # loved | liked | neutral | disliked | curious
----
 
 # For Emma, Forever Ago
 
@@ -211,10 +201,8 @@ Loved
 File: `wiki/people/{name-slug}.md`
 
 ```markdown
----
 type: director  # author | director | actor | musician | creator
 name: "Celine Song"
----
 
 # Celine Song
 
@@ -233,9 +221,7 @@ name: "Celine Song"
 File: `wiki/themes/{theme-slug}.md`
 
 ```markdown
----
 type: theme
----
 
 # Dark Academia
 
@@ -262,9 +248,7 @@ File: `wiki/moods/{mood-slug}.md`
 Same structure as themes, but focused on feeling rather than concept:
 
 ```markdown
----
 type: mood
----
 
 # Melancholy
 
@@ -286,11 +270,9 @@ type: mood
 File: `wiki/quotes/{slug}.md`
 
 ```markdown
----
 type: quote
 source: "The Secret History"
 author: "Donna Tartt"
----
 
 # "Beauty is terror."
 
@@ -308,10 +290,8 @@ From [[The Secret History]] by [[Donna Tartt]]
 File: `wiki/questions/{slug}.md`
 
 ```markdown
----
 type: question
 date: 2026-05-06
----
 
 # Why do I keep coming back to melancholy stories?
 
@@ -327,7 +307,6 @@ date: 2026-05-06
 - [[For Emma, Forever Ago]]
 ```
 
----
 
 ## Conventions
 
@@ -362,7 +341,6 @@ ISO format: `2026-05-06`
 ### Frontmatter
 Every wiki page should have YAML frontmatter with at least `type`. This enables Obsidian Dataview queries later.
 
----
 
 ## Workflows
 
@@ -413,7 +391,6 @@ Periodically (or when asked), health-check the wiki:
 - **Inconsistencies** — conflicting information across pages
 - **Profile gaps** — taste patterns that are visible but not recorded in `wiki/profile.md`
 
----
 
 ## Log format
 
@@ -433,7 +410,6 @@ This makes the log parseable:
 grep "^## \[" wiki/log.md | tail -10
 ```
 
----
 
 ## Tone
 
@@ -446,7 +422,6 @@ Prefer pages that feel **human, useful, and enjoyable to browse** — like a fri
 
 Write the way someone would write in their own notebook: direct, sometimes fragmentary, honest about what they felt.
 
----
 
 ## Important rules
 
