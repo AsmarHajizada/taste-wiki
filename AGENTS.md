@@ -344,6 +344,22 @@ Every wiki page should have YAML frontmatter with at least `type`. This enables 
 
 ## Workflows
 
+### Inbox
+
+The user captures quick thoughts on mobile in `raw/notes/inbox.md`. When they say **"process my inbox"**:
+
+1. **Read** `raw/notes/inbox.md` in full.
+2. **Parse** each entry — identify the type (show, movie, book, music, quote, thought/question).
+3. **Ingest** each item following the full Ingest workflow below.
+4. **After processing all entries**, clear the processed items from the inbox file, leaving only the header and the `---` divider. Do not delete the file.
+5. **Do not ask for clarification on vague entries** — make your best inference and note the uncertainty in the wiki page. The user can correct later.
+
+**Reading inbox entries:** Entries are freeform. Examples:
+- `"watched X, loved it"` → ingest as show/movie with status watched, sentiment liked
+- `"X is on repeat"` → ingest as music with status loved
+- `"thought: ..."` → ingest as a question or note
+- `"quote from X: ..."` → ingest as a quote linked to the source
+
 ### Ingest
 
 When the user adds a new source, note, review, or cultural item:
