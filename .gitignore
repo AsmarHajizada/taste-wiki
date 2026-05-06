@@ -1,4 +1,5 @@
 # personal wiki content — ignore files, keep folders
+app/data.json
 wiki/books/*
 !wiki/books/.gitkeep
 wiki/movies/*

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>taste wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>taste wiki</h1>
+      <div class="stats-bar" id="stats-bar"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="constellation-section">
+      <h2 class="section-label">constellation</h2>
+      <div id="constellation"></div>
+    </section>
+
+    <div class="grid-2">
+      <section class="card" id="profile-section">
+        <h2 class="section-label">taste profile</h2>
+        <div id="profile-content"></div>
+      </section>
+      <section class="card" id="activity-section">
+        <h2 class="section-label">activity</h2>
+        <div id="activity-content"></div>
+      </section>
+    </div>
+
+    <div class="grid-2">
+      <section class="card" id="moods-section">
+        <h2 class="section-label">mood palette</h2>
+        <div id="moods-content"></div>
+      </section>
+      <section class="card" id="themes-section">
+        <h2 class="section-label">themes</h2>
+        <div id="themes-content"></div>
+      </section>
+    </div>
+
+    <section class="card" id="collections-section">
+      <div class="tabs" id="tabs"></div>
+      <div class="cards-grid" id="cards-grid"></div>
+    </section>
+
+    <section class="card" id="people-section">
+      <h2 class="section-label">people</h2>
+      <div id="people-content"></div>
+    </section>
+  </main>
+
+  <div class="viewer" id="viewer">
+    <div class="viewer-backdrop" id="viewer-backdrop"></div>
+    <div class="viewer-panel" id="viewer-panel">
+      <button class="viewer-close" id="viewer-close">&times;</button>
+      <div class="viewer-body" id="viewer-body"></div>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

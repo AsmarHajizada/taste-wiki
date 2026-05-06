@@ -10,66 +10,56 @@ Two windows, side by side:
 
 | Window | Role |
 |--------|------|
-| **LLM agent** (Gemini in VS Code, Claude Code, Codex, Cursor, etc.) | Reads/writes the wiki files |
-| **Obsidian** | You browse the wiki the LLM created |
+| **LLM agent** (Gemini, Claude Code, Cursor, Codex, etc.) | Reads/writes the wiki files |
+| **Obsidian** (or the dashboard) | You browse the wiki the LLM created |
 
 ```
-raw/       → You drop source material here (notes, reviews, exports, clips)
-wiki/      → The LLM builds and maintains the wiki here
-AGENTS.md  → The schema that tells the LLM how to operate
+raw/       → your source material (notes, reviews, exports, clips)
+wiki/      → the LLM builds and maintains the wiki here
+AGENTS.md  → the schema that tells the LLM how to operate
+app/       → local dashboard to visualize your taste data
 ```
 
-**The LLM is not inside Obsidian.** Obsidian is just a viewer. The LLM is whatever coding agent you're chatting with — as long as it has access to this folder and reads `AGENTS.md`, it knows exactly what to do.
-
-You never write the wiki yourself. You tell the LLM what you watched, read, or listened to. It creates the pages, extracts themes and moods, cross-references everything, updates your taste profile, and suggests what to explore next.
+The LLM is not inside Obsidian. It's whatever coding agent you're chatting with — as long as it has access to this folder and reads `AGENTS.md`, it knows what to do.
 
 ## Getting started
 
 ### 1. Open this folder in your LLM agent
 
-Open `taste-wiki/` as the workspace in your LLM coding agent (Gemini in VS Code, Claude Code, Cursor, Codex, etc.). The agent reads `AGENTS.md` and knows how to maintain the wiki.
+Open `taste-wiki/` as the workspace in your LLM coding agent. The agent reads `AGENTS.md` and knows how to maintain the wiki.
 
-### 2. Open this folder in Obsidian
+### 2. Talk to the LLM
 
-Open the same folder as an Obsidian vault. The `.obsidian/` config is already set up — wikilinks work, graph view shows connections, and you can browse the wiki as it grows.
-
-### 3. Talk to the LLM
-
-In your LLM agent conversation, say things like:
+Say things like:
 - "I just watched Past Lives and loved it"
 - "I'm reading The Secret History — halfway through, really enjoying the atmosphere"
 - "Add Bon Iver's For Emma to my music — it's a winter album for me"
 
-The LLM creates pages, links them, updates lists, and builds your taste profile. You see the results in Obsidian in real time.
+The LLM creates pages, links them, updates lists, and builds your taste profile.
 
-### 4. Ask questions
+### 3. Browse in Obsidian or the dashboard
 
-- "What themes keep showing up in my favorites?"
-- "Recommend something melancholy but not depressing"
-- "What do all my 5-star movies have in common?"
+Open this folder as an Obsidian vault to browse with graph view and wikilinks, or run the dashboard for a visual overview of your taste data.
 
-### 5. Browse in Obsidian
+## Dashboard
 
-Watch the wiki grow. Use graph view to see the connections. Click through themes and moods to discover patterns you didn't notice.
-
-## Tools
-
-### Search
+A local web app that reads your wiki and renders it as an interactive visual — constellation graph, mood palette, theme cloud, item cards, page viewer, and activity feed.
 
 ```bash
-# Full-text search
+python tools/build_data.py    # parse wiki → app/data.json
+python -m http.server 8000 --directory app
+# open http://localhost:8000
+```
+
+Rebuild data any time you add new content via the LLM.
+
+## Search
+
+```bash
 python tools/search_wiki.py "melancholy"
-
-# Search within a category
 python tools/search_wiki.py "dark" --dir themes
-
-# List all pages
 python tools/search_wiki.py --list
-
-# Wiki stats
 python tools/search_wiki.py --stats
-
-# Check for broken links and orphan pages
 python tools/search_wiki.py --links
 ```
 
@@ -77,21 +67,21 @@ python tools/search_wiki.py --links
 
 | Directory | What goes here |
 |-----------|----------------|
-| `raw/books/` | Book notes, highlights, reviews |
-| `raw/movies/` | Movie reviews, thoughts |
-| `raw/shows/` | Show notes, episode reactions |
-| `raw/music/` | Album/song notes, playlists |
-| `raw/articles/` | Saved articles, web clips |
-| `raw/quotes/` | Raw quote collections |
-| `raw/notes/` | Freeform thoughts, journal entries |
+| `raw/books/` | book notes, highlights, reviews |
+| `raw/movies/` | movie reviews, thoughts |
+| `raw/shows/` | show notes, episode reactions |
+| `raw/music/` | album/song notes, playlists |
+| `raw/articles/` | saved articles, web clips |
+| `raw/quotes/` | raw quote collections |
+| `raw/notes/` | freeform thoughts, journal entries |
 | `raw/exports/` | Letterboxd, Goodreads, Spotify exports |
-| `raw/screenshots/` | Images, screenshots |
-| `wiki/` | LLM-maintained wiki (don't edit manually) |
-| `tools/` | Helper scripts |
+| `wiki/` | LLM-maintained wiki |
+| `app/` | dashboard |
+| `tools/` | helper scripts |
 
 ## Key wiki pages
 
-- **[index.md](wiki/index.md)** — Master catalog of all pages
-- **[profile.md](wiki/profile.md)** — Your evolving taste profile
-- **[recommendations.md](wiki/recommendations.md)** — What to explore next, with reasons
-- **[log.md](wiki/log.md)** — Timeline of all wiki activity
+- [index.md](wiki/index.md) — catalog of all pages
+- [profile.md](wiki/profile.md) — evolving taste profile
+- [recommendations.md](wiki/recommendations.md) — what to explore next
+- [log.md](wiki/log.md) — timeline of all activity
