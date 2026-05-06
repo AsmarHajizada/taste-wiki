@@ -1,4 +1,22 @@
-# Obsidian workspace
+# -----------------------------------------------
+# Personal wiki content — never commit these
+# -----------------------------------------------
+wiki/books/
+wiki/movies/
+wiki/shows/
+wiki/music/
+wiki/people/
+wiki/themes/
+wiki/moods/
+wiki/quotes/
+wiki/questions/
+
+# Raw source material is always personal
+raw/
+
+# -----------------------------------------------
+# Obsidian
+# -----------------------------------------------
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/plugins/
